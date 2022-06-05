@@ -5,22 +5,36 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .app{
+  font-family: monospace;
   height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 40px 1fr 1fr;
+  background-color: #555;
+  column-gap: 2px;
 }
 
-.divButton{
-  border: solid 1px gray;
-  background-color: #ddd;
+div button{
+  grid-template-rows: 1;
+  background-color: #888;
+  border: solid #9f9f9f 1px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 17px;
+}
+
+div button:hover{
+  background-color: #333;
+  color: #ddd;
+}
+
+div button:active{
+  background-color: #111;
 }
