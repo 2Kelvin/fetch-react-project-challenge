@@ -14,10 +14,12 @@ body {
   font-family: monospace;
   height: 100vh;
   width: 100vw;
+  background-color: #555;
+}
+.topButtons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 40px 1fr 1fr;
-  background-color: #555;
   column-gap: 2px;
 }
 
