@@ -39,8 +39,8 @@ function App() {
     return commentsData;
   };
 
-  const displayAPIdata = async (asyFunc) => {
-    const data = await asyFunc();
+  const displayAPIdata = async (getFunc) => {
+    const data = await getFunc();
     setAPIdata(
       data.map(user =>
         <li key={user.id} style={{marginBottom:'20px'}}>
