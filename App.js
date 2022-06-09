@@ -12,28 +12,30 @@ function App() {
     });
 
     const usersData = await response.json();
+    return usersData;
+  };
+
+  const displayUsersData = async () => {
+    const data = await getUsers();
     setUsers(
-      <ul>
-      {usersData.map(user => <li key={user.id}>{user}</li>)}
-      </ul>
+      data.map(user =>
+        <li key={user.id} style={{marginBottom:'20px'}}>
+          {JSON.stringify(user)}
+        </li>)
     );
   };
 
   return (
     <div className="app">
       <div className="topButtons">
-        <button
-          onClick={()=>getUsers()}
-        >Users</button>
-
+        <button onClick={() => displayUsersData()}> Users </button>
         <button>Posts</button>
-
         <button>Comments</button>
       </div>
 
-      <div className="content">
+      <ul className="content">
        {users}
-      </div>
+      </ul>
     </div>
   );
 }

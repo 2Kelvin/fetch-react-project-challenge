@@ -2,36 +2,41 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app{
-  font-family: monospace;
-  height: 100vh;
-  width: 100vw;
-  background-color: #555;
+.app ul{
+  padding: 0 20px;
 }
 .topButtons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 40px 1fr 1fr;
   column-gap: 2px;
 }
 
 div button{
   grid-template-rows: 1;
-  background-color: #888;
-  border: solid #9f9f9f 1px;
+  background: dodgerblue;
+  border: none;
+  margin: 5px 2px;
   border-radius: 5px;
-  font-family: monospace;
-  font-size: 17px;
+  font-size: 18px;
+  height: 60px;
+  color: #333;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
+div button:nth-of-type(2) {
+  background: purple;
+  color: #ddd;
+}
+div button:nth-of-type(3) {
+  background: skyblue;
+}
 div button:hover{
   background-color: #333;
   color: #ddd;
@@ -39,4 +44,8 @@ div button:hover{
 
 div button:active{
   background-color: #111;
+}
+
+ul{
+  list-style-type: disc;
 }
