@@ -1,60 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [apiData, setAPIdata] = useState("");
+  const [dataCategory, setdataCategory] = useState("");
+  const [apiData, setAPIdata] = useState([]);
 
-  const getUsers = async () => {
-    const response = await fetch("http://jsonplaceholder.typicode.com/users", {
-      method: "GET",
-      headers: {
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch(`http://jsonplaceholder.typicode.com/${dataCategory}`, {
+        method: "GET",
+        headers: {
         Accept: "application/json"
-      }
-    });
+        }
+      });
 
-    const usersData = await response.json();
-    return usersData;
-  };
+      const data = await response.json();
 
-  const getPosts = async () => {
-    const response = await fetch("http://jsonplaceholder.typicode.com/posts", {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    });
-
-    const postsData = await response.json();
-    return postsData;
-  };
-
-  const getComments = async () => {
-    const response = await fetch("http://jsonplaceholder.typicode.com/comments", {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    });
-
-    const commentsData = await response.json();
-    return commentsData;
-  };
-
-  const displayAPIdata = async (getFunc) => {
-    const data = await getFunc();
-    setAPIdata(
-      data.map(user =>
-        <li key={user.id} style={{marginBottom:'20px'}}>
-          {JSON.stringify(user)}
-        </li>)
-    );
-  };
+      setAPIdata(data.map(userData => <li key={userData.id}>
+        {JSON.stringify(userData)}
+      </li>));
+    };
+    getData();
+  }, [dataCategory]);
 
   return (
     <div className="app">
       <div className="topButtons">
-        <button onClick={() => displayAPIdata(getUsers)}> Users </button>
-        <button onClick={() => displayAPIdata(getPosts)}> Posts </button>
-        <button onClick={() => displayAPIdata(getComments)}> Comments </button>
+        <button onClick={() => setdataCategory("users")}> Users </button>
+        <button onClick={() => setdataCategory("posts")}> Posts </button>
+        <button onClick={() => setdataCategory("comments")}> Comments </button>
       </div>
 
       <ul className="content"> {apiData} </ul>
