@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function App() {
-  const [dataCategory, setdataCategory] = useState("");
+  const [dataCategory, setdataCategory] = useState("users");
   const [apiData, setAPIdata] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function App() {
       </li>));
     };
     getData();
-  }, [dataCategory]);
+  }, [dataCategory])
 
   return (
     <div className="app">
