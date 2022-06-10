@@ -6,19 +6,16 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(`http://jsonplaceholder.typicode.com/${dataCategory}`, {
-        method: "GET",
-        headers: {
-        Accept: "application/json"
-        }
-      });
+      try {
+        const response = await fetch(`http://jsonplaceholder.typicode.com/${dataCategory}`);
 
-      const data = await response.json();
-
-      setAPIdata(data.map(userData => <li key={userData.id}>
-        {JSON.stringify(userData)}
-      </li>));
+        const data = await response.json();
+        setAPIdata(data);
+      } catch (err) {
+        console.log(err);
+      }
     };
+
     getData();
   }, [dataCategory])
 
@@ -30,7 +27,13 @@ function App() {
         <button onClick={() => setdataCategory("comments")}> Comments </button>
       </div>
 
-      <ul className="content"> {apiData} </ul>
+      <ul className="content">
+        {apiData.map(userData =>
+          <li key={userData.id}>
+            {JSON.stringify(userData)}
+          </li>
+        )}
+      </ul>
     </div>
   );
 }
