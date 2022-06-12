@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Button from "./Components/Button";
 
 function App() {
   const [dataCategory, setdataCategory] = useState("users");
@@ -21,10 +22,24 @@ function App() {
 
   return (
     <div className="app">
-      <div className="topButtons">
-        <button onClick={() => setdataCategory("users")}> Users </button>
-        <button onClick={() => setdataCategory("posts")}> Posts </button>
-        <button onClick={() => setdataCategory("comments")}> Comments </button>
+      <div className="apiButtons">
+        <Button
+          buttonText="users"
+          dataCategory={dataCategory}
+          setdataCategory={setdataCategory}
+        />
+
+        <Button
+          buttonText="posts"
+          dataCategory={dataCategory}
+          setdataCategory={setdataCategory}
+        />
+
+        <Button
+          buttonText="comments"
+          dataCategory={dataCategory}
+          setdataCategory={setdataCategory}
+        />
       </div>
 
       <ul className="content">
