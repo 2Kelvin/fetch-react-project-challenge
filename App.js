@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "./Components/Button";
+import ListReceiveData from "./Components/ListReceiveData";
 
 function App() {
   const [dataCategory, setdataCategory] = useState("users");
@@ -42,13 +43,9 @@ function App() {
         />
       </div>
 
-      <ul className="content">
-        {apiData.map(userData =>
-          <li key={userData.id}>
-            {JSON.stringify(userData)}
-          </li>
-        )}
-      </ul>
+      <ListReceiveData
+        apiData={apiData}
+      />
     </div>
   );
 }

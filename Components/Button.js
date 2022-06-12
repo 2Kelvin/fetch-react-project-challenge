@@ -3,7 +3,8 @@ const Button = ({buttonText, dataCategory, setdataCategory}) => {
         <button
             className={buttonText === dataCategory ? "btnSelected" : null}
             onClick={()=>setdataCategory(buttonText)}
-        >{ buttonText }</button>
+        >
+        {buttonText}</button>
     );
 }
 
