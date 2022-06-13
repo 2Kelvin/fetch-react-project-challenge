@@ -38,3 +38,13 @@
 ul{
   list-style-type: disc;
 }
+
+.usersGrid {
+  display: grid;
+  grid-template-columns: 10px 80px 80px 190px 400px 150px 150px 250px;
+  gap: 10px;
+}
+
+.usersGrid p {
+  border: solid black 1px;
+}

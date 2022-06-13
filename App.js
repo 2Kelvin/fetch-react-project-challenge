@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "./Components/Button";
-import ListReceiveData from "./Components/ListReceiveData";
+import Users from "./Components/Users";
 
 function App() {
   const [dataCategory, setdataCategory] = useState("users");
@@ -43,9 +43,11 @@ function App() {
         />
       </div>
 
-      <ListReceiveData
-        apiData={apiData}
-      />
+      ({dataCategory === "users"}) ? ({
+        apiData.map(userData =>
+          <Users userData={userData} key={userData.id} />
+        )
+      }) : null;
     </div>
   );
 }
