@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "./Components/Button";
-import Users from "./Components/Users";
+import Table from "./Components/Table";
 
 function App() {
   const [dataCategory, setdataCategory] = useState("users");
@@ -43,11 +43,7 @@ function App() {
         />
       </div>
 
-      ({dataCategory === "users"}) ? ({
-        apiData.map(userData =>
-          <Users userData={userData} key={userData.id} />
-        )
-      }) : null;
+      <Table apiData={apiData} />
     </div>
   );
 }
