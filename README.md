@@ -1,5 +1,7 @@
 # fetch-react-project-challenge
 
-Using an async / await function and fetch to grab API data then through map() and useState rendering each data object as a list item in the page
+- Using an **async / await** function and **fetch** to grab API data 
+- then *mapping* through each object through **Object.entries()** and giving each object a key
+- then using **JSON.stringify** I display each data in a JSX table data cell with each cell having it's own unique key
 
-![apifetchdata](https://user-images.githubusercontent.com/85868026/172864097-0ce117c1-b4a7-4408-bcaf-7052e9a72778.png)
+![table](https://user-images.githubusercontent.com/85868026/173376491-8f9500fe-733e-460d-b234-9a81183eb5d2.png)
